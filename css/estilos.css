@@ -1,0 +1,170 @@
+/* ===== Reset básico ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Variables de color ===== */
+:root {
+    --color-principal: #2563eb;
+    --color-principal-oscuro: #1d4ed8;
+    --color-fondo: #f1f5f9;
+    --color-tarjeta: #ffffff;
+    --color-texto: #1e293b;
+    --color-borde: #cbd5e1;
+    --color-error: #dc2626;
+    --color-exito: #16a34a;
+}
+
+/* ===== Página ===== */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 16px;
+}
+
+/* ===== Tarjeta contenedora ===== */
+.contenedor {
+    background: var(--color-tarjeta);
+    width: 100%;
+    max-width: 520px;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contenedor h1 {
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    margin-bottom: 6px;
+    color: var(--color-principal);
+}
+
+.contenedor > p {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+/* ===== Grupos de campos ===== */
+.grupo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.grupo label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.grupo input[type="text"],
+.grupo input[type="password"],
+.grupo select {
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 2px solid var(--color-borde);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--color-texto);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.grupo input:focus,
+.grupo select:focus {
+    outline: none;
+    border-color: var(--color-principal);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* ===== Estados de validación (clases que agrega JavaScript) ===== */
+.grupo input.error,
+.grupo select.error {
+    border-color: var(--color-error);
+}
+
+.grupo input.exito,
+.grupo select.exito {
+    border-color: var(--color-exito);
+}
+
+/* ===== Mensajes de error ===== */
+.grupo small {
+    color: var(--color-error);
+    font-size: 0.8rem;
+    margin-top: 4px;
+    min-height: 1em; /* evita que el formulario "salte" al aparecer el mensaje */
+}
+
+small.exito {
+    color: var(--color-exito);
+}
+
+/* ===== Checkbox de términos ===== */
+.grupo.terminos label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.grupo.terminos input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-principal);
+    cursor: pointer;
+}
+
+/* ===== Botón ===== */
+#btnRegistrar {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--color-principal);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+#btnRegistrar:hover:not(:disabled) {
+    background: var(--color-principal-oscuro);
+}
+
+#btnRegistrar:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+#btnRegistrar:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+}
+
+/* ===== Mensaje final ===== */
+#mensajeFinal {
+    margin-top: 16px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ===== Móvil ===== */
+@media (max-width: 480px) {
+    body {
+        padding: 16px 8px;
+    }
+
+    .contenedor {
+        padding: 20px;
+    }
+}
